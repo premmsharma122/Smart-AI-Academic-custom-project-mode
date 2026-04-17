@@ -1,0 +1,20 @@
+Updated fixes included in this ZIP:
+
+1. Homepage text adjusted to feel more practical and less AI-template-like.
+2. Login page redesigned and demo access buttons now perform actual login.
+3. Signup flow fixed so a simple student account can be created without missing-profile errors.
+4. Backend now auto-creates demo users on startup if they do not exist.
+5. Student dashboard bug after login fixed.
+6. Frontend Tailwind/PostCSS package entries added so npm install includes required packages.
+7. Vite config simplified and PostCSS config added.
+
+Demo accounts:
+- Student: student1@college.edu / student123
+- Faculty: faculty1@college.edu / faculty123
+- Admin: admin@college.edu / admin123
+
+Run order:
+1. backend -> npm install -> npm run dev
+2. frontend -> npm install -> npm run dev
+
+If you already installed frontend before this updated ZIP, run npm install again inside frontend.

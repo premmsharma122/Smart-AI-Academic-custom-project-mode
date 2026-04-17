@@ -1,0 +1,6 @@
+Theme and UI updates included:
+- Unified visual theme across homepage, auth pages, dashboards, attendance, marks, profile, and prediction pages
+- Homepage copy simplified to feel more natural and less AI-generated
+- Dark mode / light mode toggle added
+- Popup toast notifications added for login, signup, logout, forgot password, and reset password actions
+- Shared academic navy/white theme applied through global CSS and layout updates

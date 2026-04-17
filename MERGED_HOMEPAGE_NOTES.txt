@@ -1,0 +1,27 @@
+Smart AI Academic Intelligence System - Homepage Merge Notes
+
+What was merged:
+- A new modern, responsive homepage was integrated into the existing Vite React frontend.
+- Existing login, signup, dashboard, attendance, marks, profile, and prediction routes were preserved.
+- Backend folder structure was kept intact.
+
+Main updated frontend files:
+- frontend/src/App.jsx
+- frontend/src/pages/Home.jsx
+- frontend/src/styles/index.css
+
+New reusable homepage components:
+- frontend/src/components/Home/SectionHeading.jsx
+- frontend/src/components/Home/HomeNavbar.jsx
+- frontend/src/components/Home/AcademicIllustration.jsx
+- frontend/src/components/Home/HeroSection.jsx
+- frontend/src/components/Home/FeaturesSection.jsx
+- frontend/src/components/Home/AboutSection.jsx
+- frontend/src/components/Home/WhyChooseUsSection.jsx
+- frontend/src/components/Home/StatsSection.jsx
+- frontend/src/components/Home/CtaSection.jsx
+- frontend/src/components/Home/HomeFooter.jsx
+
+Important note:
+- node_modules and dist folders were intentionally excluded from this merged ZIP so the project stays cleaner and more portable.
+- After extracting, run npm install inside frontend and backend before starting the project.

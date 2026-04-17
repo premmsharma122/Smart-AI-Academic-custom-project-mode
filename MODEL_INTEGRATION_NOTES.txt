@@ -1,0 +1,40 @@
+Smart AI Academic Intelligence System - Custom Model Integration
+
+What is different in this version:
+1. Replaced the old placeholder / hard-coded prediction flow with a project-aligned ML pipeline.
+2. Kept a public higher-education dropout dataset as the base source in:
+   backend/ml/raw_data/uci_dropout_base_dataset.csv
+3. Generated project-style CSV files that use your app's field names:
+   - backend/ml/model_artifacts/smart_ai_risk_training_dataset.csv
+   - backend/ml/model_artifacts/smart_ai_performance_training_dataset.csv
+4. Trained two real models:
+   - smart_ai_dropout_risk_model.pkl
+   - smart_ai_performance_model.pkl
+5. The Python prediction script now returns:
+   - dropout probability
+   - risk level
+   - recommendations
+   - predicted next-semester CGPA
+   - predicted grade
+6. The Node backend uses these models through child_process and the admin dashboard can retrain them.
+
+Training summary from this packaged build:
+- Dropout risk model ROC-AUC: 0.931558
+- Dropout risk model accuracy: 0.889266
+- Performance model R^2: 0.738671
+- Performance model MAE: 0.718038
+
+Important for your laptop:
+1. Install backend packages:
+   npm install
+2. Install Python ML packages:
+   pip install -r backend/ml/requirements.txt
+3. Start backend:
+   npm run dev
+
+Optional .env:
+- PYTHON_EXECUTABLE=python
+or
+- PYTHON_EXECUTABLE=py
+
+This build is intended to replace the earlier hard-coded prediction logic with real trained models.
