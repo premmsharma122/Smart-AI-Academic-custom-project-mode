@@ -30,7 +30,9 @@ app.use(cors({
 }));
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
+app.get('/', (req, res) => {
+  res.send('Smart AI Academic System Backend is Running!');
+});
 app.use('/api/auth', authRoutes);
 app.use('/api/students', studentRoutes);
 app.use('/api/faculty', facultyRoutes);
