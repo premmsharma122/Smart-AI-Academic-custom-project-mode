@@ -1,0 +1,146 @@
+{
+  "modelName": "Smart AI Academic Intelligence Model Suite",
+  "trainedAt": "2026-04-10T17:01:34.815169+00:00",
+  "datasetBase": {
+    "name": "UCI Predict Students' Dropout and Academic Success",
+    "doi": "10.24432/C5MC89",
+    "sourceFile": "backend/ml/raw_data/uci_dropout_base_dataset.csv",
+    "baseRows": 4424,
+    "baseColumns": 35
+  },
+  "riskDataset": {
+    "name": "smart_ai_risk_training_dataset.csv",
+    "rows": 4424,
+    "columns": 24,
+    "path": "backend/ml/model_artifacts/smart_ai_risk_training_dataset.csv",
+    "features": [
+      "gender_code",
+      "attendance_percentage",
+      "assignment_completion",
+      "current_cgpa",
+      "previous_cgpa",
+      "average_internal_marks",
+      "average_total_marks",
+      "subjects_enrolled",
+      "subjects_evaluated",
+      "subjects_passed",
+      "subjects_credited",
+      "age_at_enrollment",
+      "debtor",
+      "tuition_fees_up_to_date",
+      "scholarship_holder",
+      "educational_special_needs",
+      "international",
+      "course_code",
+      "daytime_attendance",
+      "displaced",
+      "unemployment_rate",
+      "inflation_rate",
+      "gdp"
+    ],
+    "target": "dropout_target",
+    "featureMode": "current-state aggregated project fields"
+  },
+  "performanceDataset": {
+    "name": "smart_ai_performance_training_dataset.csv",
+    "rows": 4424,
+    "columns": 24,
+    "path": "backend/ml/model_artifacts/smart_ai_performance_training_dataset.csv",
+    "features": [
+      "gender_code",
+      "attendance_percentage",
+      "assignment_completion",
+      "current_cgpa",
+      "previous_cgpa",
+      "average_internal_marks",
+      "average_total_marks",
+      "subjects_enrolled",
+      "subjects_evaluated",
+      "subjects_passed",
+      "subjects_credited",
+      "age_at_enrollment",
+      "debtor",
+      "tuition_fees_up_to_date",
+      "scholarship_holder",
+      "educational_special_needs",
+      "international",
+      "course_code",
+      "daytime_attendance",
+      "displaced",
+      "unemployment_rate",
+      "inflation_rate",
+      "gdp"
+    ],
+    "target": "next_sem_cgpa_target",
+    "featureMode": "early-state project fields mapped from first-sem data"
+  },
+  "riskModel": {
+    "task": "Binary classification",
+    "target": "dropout_target",
+    "artifact": "backend/ml/model_artifacts/smart_ai_dropout_risk_model.pkl",
+    "metrics": {
+      "accuracy": 0.889266,
+      "precision": 0.872,
+      "recall": 0.767606,
+      "f1": 0.816479,
+      "rocAuc": 0.931558
+    },
+    "topFeatures": [
+      {
+        "feature": "attendance_percentage",
+        "importance": 0.308496
+      },
+      {
+        "feature": "subjects_passed",
+        "importance": 0.143388
+      },
+      {
+        "feature": "tuition_fees_up_to_date",
+        "importance": 0.113353
+      },
+      {
+        "feature": "subjects_enrolled",
+        "importance": 0.047944
+      },
+      {
+        "feature": "assignment_completion",
+        "importance": 0.040187
+      },
+      {
+        "feature": "average_total_marks",
+        "importance": 0.037164
+      },
+      {
+        "feature": "debtor",
+        "importance": 0.031819
+      },
+      {
+        "feature": "scholarship_holder",
+        "importance": 0.025709
+      },
+      {
+        "feature": "current_cgpa",
+        "importance": 0.024925
+      },
+      {
+        "feature": "course_code",
+        "importance": 0.02416
+      }
+    ]
+  },
+  "performanceModel": {
+    "task": "Regression",
+    "target": "next_sem_cgpa_target",
+    "artifact": "backend/ml/model_artifacts/smart_ai_performance_model.pkl",
+    "metrics": {
+      "mae": 0.718038,
+      "rmse": 1.329988,
+      "r2": 0.738671
+    }
+  },
+  "notes": [
+    "The public base dataset was transformed into project-aligned CSV files so the backend can use your own field names instead of the original research columns.",
+    "The dropout model uses current-state academic and financial fields that best match your ERP-style student records.",
+    "The performance model predicts next-semester CGPA from earlier-state project fields, replacing the previous hard-coded CGPA formula."
+  ]
+}
