@@ -7,6 +7,9 @@ const { bootstrapDemoData } = require('./utils/bootstrapDemoData');
 
 dotenv.config();
 
+const app = express();
+
+app.use(express.json());
 const authRoutes = require('./routes/authRoutes');
 const studentRoutes = require('./routes/studentRoutes');
 const facultyRoutes = require('./routes/facultyRoutes');
@@ -17,9 +20,6 @@ const predictionRoutes = require('./routes/predictionRoutes');
 
 const errorMiddleware = require('./middleware/errorMiddleware');
 
-const app = express();
-
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
@@ -62,7 +62,7 @@ mongoose.connect(process.env.MONGODB_URI)
 
     app.listen(PORT, () => {
       console.log(`🚀 Backend running on http://localhost:${PORT}`);
-      console.log('🔗 Accepting requests from http://localhost:5173');
+      console.log('🔗 Accepting requests from https://sparkly-pony-d794c3.netlify.app');
     });
   })
   .catch((err) => {
