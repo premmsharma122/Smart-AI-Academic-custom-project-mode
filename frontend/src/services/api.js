@@ -1,12 +1,57 @@
+// import axios from 'axios';
+
+// const API_URL = import.meta.env.VITE_API_URL || 'https://smart-ai-academic-custom-project-mode.onrender.com/api';
+
+// const api = axios.create({
+//   baseURL: 'https://smart-ai-academic-custom-project-mode.onrender.com/api',
+//   headers: {
+//     'Content-Type': 'application/json',
+//   },
+// });
+
+// api.interceptors.request.use(
+//   (config) => {
+//     const token = localStorage.getItem('token');
+//     if (token) {
+//       config.headers.Authorization = `Bearer ${token}`;
+//     }
+//     return config;
+//   },
+//   (error) => Promise.reject(error)
+// );
+
+// api.interceptors.response.use(
+//   (response) => response,
+//   (error) => {
+//     const status = error.response?.status;
+//     const url = error.config?.url || '';
+//     const isAuthAction = url.includes('/auth/login') || url.includes('/auth/register');
+
+//     if (status === 401 && !isAuthAction) {
+//       localStorage.removeItem('token');
+//       localStorage.removeItem('user');
+
+//       if (window.location.pathname !== '/login') {
+//         window.location.href = '/login';
+//       }
+//     }
+
+//     return Promise.reject(error);
+//   }
+// );
+
+// export default api;
 import axios from 'axios';
 
+// 1. Environment variable check karein, agar nahi hai toh Render ka default use karein
 const API_URL = import.meta.env.VITE_API_URL || 'https://smart-ai-academic-custom-project-mode.onrender.com/api';
 
 const api = axios.create({
-  baseURL: 'https://smart-ai-academic-custom-project-mode.onrender.com/api',
+  baseURL: API_URL, // Yahan 'API_URL' variable ka use karein, hardcoded string ka nahi
   headers: {
     'Content-Type': 'application/json',
   },
+  withCredentials: true, // Backend ke session/cookies handle karne ke liye zaroori hai
 });
 
 api.interceptors.request.use(
